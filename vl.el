@@ -1,4 +1,4 @@
-;; vl.el --- navigate and edit CSV files
+;; vl.el --- several vector and list functions
 
 ;; Copyright (C) 2013  Tom Koelman
 ;;
@@ -132,3 +132,4 @@ calling PRED with the item as an argument returns non-nil."
            (font-lock-refresh-defaults))))))
 
 (provide 'vl)
+;;; vl.el ends here
