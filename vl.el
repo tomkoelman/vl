@@ -76,6 +76,12 @@ nil when not found."
 otherwise just returns POSSIBLE-LIST."
   (if (atom possible-list) (list possible-list) possible-list))
 
+(defun -list ( possible-list )
+  "Returns a list no matter what."
+  (if (atom possible-list)
+      (list possible-list)
+    (mapcar #'identity possible-list)))
+
 (defun -vector-first-index-and-item-pair-for-pred ( vector pred )
   "Returns a (index . item) pair for the first item in VECTOR for which calling
 PRED with the item as an argument returns non-nil."
@@ -97,6 +103,7 @@ calling PRED with the item as an argument returns non-nil."
                            "-list-first-index-and-item-pair-for-pred"
                            "-list-first-index-for-pred"
                            "-list-guaranteed"
+                           "-list"
                            "-list-item-in-list-where-pred-in-other-list"
                            "-list-item-in-list-where-item-in-other-list"
                            "-vector-first-index-and-item-pair-for-pred"
