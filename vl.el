@@ -97,6 +97,11 @@ the item as an argument returns non-nil."
 calling PRED with the item as an argument returns non-nil."
   (car (-vector-first-index-and-item-pair-for-pred vector pred)))
 
+(defmacro cached-form ( cache-var form )
+  "Return CACHE-VAR when it is not nil. Otherwise set CACHE-VAR to FORM and return it."
+  `(or ,cache-var
+       (setq ,cache-var ,form)))
+
 (eval-after-load "lisp-mode"
   '(progn
      (let ((new-keywords '(
@@ -106,6 +111,7 @@ calling PRED with the item as an argument returns non-nil."
                            "-list"
                            "-list-item-in-list-where-pred-in-other-list"
                            "-list-item-in-list-where-item-in-other-list"
+                           "cached-form"
                            "-vector-first-index-and-item-pair-for-pred"
                            "-vector-first-item-for-pred"
                            "-vector-first-index-for-pred"
