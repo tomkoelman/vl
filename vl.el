@@ -33,11 +33,6 @@
 
 ;;; Code:
 
-(defun -list-guaranteed ( possible-list )
-  "Returns (list POSSIBLE-LIST) if POSSIBLE-LIST is atom,
-otherwise just returns POSSIBLE-LIST."
-  (if (atom possible-list) (list possible-list) possible-list))
-
 (defmacro cached-form ( cache-var form )
   "Return CACHE-VAR when it is not nil. Otherwise set CACHE-VAR to FORM and return it."
   `(or ,cache-var
